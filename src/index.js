@@ -34,6 +34,7 @@ async function searchImages(event) {
   urlParams.set('q', searchQuery);
 
   const { totalHits, hits } = await fetchImages(urlParams);
+  Notify.success(`Hooray! We found ${totalHits} images.`);
   let perPage = Number(urlParams.get('per_page'));
   let totalPages = Math.floor(totalHits / perPage);
 
